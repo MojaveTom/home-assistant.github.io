@@ -35,3 +35,20 @@ The following extras are included on the image:
 [image-download]: https://github.com/home-assistant/pi-gen/releases/download/v1.1/image_2017-02-03-HASSbian.zip
 [etcher]: https://etcher.io/
 [http://hassbian.local:8123]: http://hassbian.local:8123
+
+### {% linkable_title Upgrading Home Assistant %}
+
+ - Login as `pi` user.
+ - Switch to `homeassistant` account.
+ - Activate virtual environment.
+ - Upgrade Home Assistant.
+ - Exit back to `pi` user.
+```
+echo "Changing to the homeassistant user"
+sudo -u homeassistant -H /bin/bash
+source /srv/homeassistant/bin/activate
+
+echo "Upgrading to latest version of Home Assistant"
+pip3 install --upgrade homeassistant
+exit       # return to previous environment
+```
